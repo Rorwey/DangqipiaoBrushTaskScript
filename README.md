@@ -1,7 +1,7 @@
 # DangqipiaoBrushTaskScript
 **党旗飘飘**党课学习平台刷客油猴脚本
 
-需要配合Tampermonkey 或 Violent monkey 等浏览器插件使用。之后从以下网址安装脚本
+需要配合Tampermonkey 或 Violent monkey 等浏览器插件使用。从以下网址安装脚本
 
 https://greasyfork.org/zh-CN/scripts/391238/
 
