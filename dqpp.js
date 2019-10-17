@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         党旗飘飘 学习平台 自动刷课
 // @namespace    http://tampermonkey.net/
-// @version      1.420
-// @description  一开始选择课程既会自动点击开始播放。视频学习播放每5分钟左右会遇上弹窗(发现这段js被关闭了，用了其他方法来检查视频播放完毕)。原理：每3秒左右（随机）尝试点击“继续”的弹窗，没有则会跳过。支持同一课程下多个视频的自动播放。课程结束后会自动点击“学习完成”。没有需要学习的视频后悔停止。页面可能会跳转，请留意。
+// @version      1.500
+// @description  一开始选择课程既会自动点击开始播放。视频学习播放每5分钟左右会遇上弹窗(发现这段js被关闭了，用了其他方法来检查视频播放完毕)。原理：每3秒左右（随机）尝试点击“继续”的弹窗，没有则会跳过。支持同一课程下多个视频的自动播放。课程结束后会自动点击“学习完成”。没有需要学习的视频后停止。页面跳转回选课界面，请留意。
 // @author       ShiZitou
 // @include      http://wsdx.ncu.edu.cn/zsdy/*/play?*
 // @grant        none
@@ -34,7 +34,8 @@
                 showInfo("当前视频已看完，将点击下一视频");
                 if(document.getElementsByClassName("video_red1")[0].nextSibling.nextSibling===null){
                     window.clearInterval(t1); 
-                    alert('当前课程没有需要学习的内容了！');
+                    showInfo('当前课程没有需要学习的内容了！');
+                    location="http://wsdx.ncu.edu.cn/user/lesson";
                 }else{
                     document.getElementsByClassName("video_red1")[0].nextSibling.nextSibling.children[0].click();//点击下一视频
                 }
